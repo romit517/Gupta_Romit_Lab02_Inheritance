@@ -1,0 +1,49 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+class Person {
+    - String ID
+    - String firstName
+    - String lastName
+    - String title
+    - int yearOfBirth
+
+    + getID() : String
+    + get firstName() : String
+    + get lastName() : String
+    + get title() : String
+    + get yearOfBirth() : int
+
+    + set firstName() : void
+    + set lastName() : void
+    + set title() : void
+    + set yearOfBirth() : void
+
+    + toString() : String
+    + toCSVDataRecord() : String
+    + fullName() : String
+    + formalName() : String
+    + getAge() : String
+}
+Worker-->Person : child >
+class Worker {
+    - double hourlyPayRate
+
+    + get hourlyPayRate() : double
+    + set hourlyPayRate() : void
+    + calculateWeeklyPay (Time worked : hours) : double
+    + displayWeeklyPay (Time worked : hours) : String
+
+}
+
+SalaryWorker-->Worker : child >
+
+class SalaryWorker{
+
+    - double annualSalary
+
+    + get annualSalary() : double
+    + set annualSalary() : void
+    + calculateWeeklyPay (Time worked : hours) : double
+    + displayWeeklyPay (Time worked : hours) : String
+}
+@enduml
